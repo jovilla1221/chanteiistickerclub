@@ -1,0 +1,41 @@
+{
+  "images": {
+    "sidebar-1": "images/evan1.jpg",
+    "sidebar-2": "images/riki1.jpg",
+    "sidebar-3": "images/evan1.jpg",
+    "sidebar-4": "images/riki2.jpg",
+    "sidebar-5": "images/evan1.jpg",
+    "sidebar-6": "images/riki3.jpg",
+    "sidebar-7": "images/riki4.jpg",
+    "sidebar-8": "images/evan1.jpg",
+    "sidebar-9": "images/riki1.jpg",
+    "sidebar-10": "images/riki2.jpg",
+    "dock-avatar": "images/evan1.jpg"
+  },
+  "catsGrid": [
+    "images/evan1.jpg",
+    "images/riki1.jpg",
+    "images/evan1.jpg",
+    "images/riki2.jpg",
+    "images/evan1.jpg",
+    "images/riki3.jpg",
+    "images/evan1.jpg",
+    "images/riki4.jpg",
+    "images/evan1.jpg",
+    "images/riki1.jpg",
+    "images/evan1.jpg",
+    "images/riki2.jpg",
+    "images/evan1.jpg",
+    "images/riki3.jpg",
+    "images/evan1.jpg",
+    "images/riki4.jpg",
+    "images/evan1.jpg",
+    "images/riki1.jpg",
+    "images/evan1.jpg",
+    "images/riki2.jpg",
+    "images/evan1.jpg",
+    "images/riki3.jpg",
+    "images/evan1.jpg",
+    "images/riki4.jpg"
+  ]
+}
