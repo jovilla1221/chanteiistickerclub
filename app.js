@@ -504,7 +504,7 @@ function buildMusic(body) {
       '<div style="font-size:48px">🎵</div>' +
       '<div style="font-family:VT323,monospace;font-size:20px;color:var(--pink-dark);margin:10px 0">Our Song</div>' +
       '<div style="font-size:14px;line-height:1.5;color:#666;margin-bottom:16px">Backsound bulan ini</div>' +
-      '<iframe width="100%" height="80" src="https://www.youtube.com/embed/jStNaVCW838?autoplay=1&controls=1&modestbranding=1&rel=0&iv_load_policy=3" ' +
+      '<iframe width="100%" height="80" src="https://www.youtube-nocookie.com/embed/jStNaVCW838?autoplay=1&controls=1&modestbranding=1&rel=0&iv_load_policy=3" ' +
       'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:10px;border:2px solid var(--pink-light)"></iframe>' +
       '<div style="font-size:12px;color:#888;margin-top:8px">Klik play jika tidak auto</div>' +
     '</div>';
