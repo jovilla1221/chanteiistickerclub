@@ -189,14 +189,25 @@ function buildCats(body) {
   body.style.padding = '6px';
   function render(imgs) {
     let html = '<div class="cats-grid">';
-    const total = 24;
+    const total = imgs && imgs.length ? imgs.length : 24;
     for (let i = 0; i < total; i++) {
       const src = imgs && imgs.length ? imgs[i % imgs.length] : '';
       const bg = src ? 'background-image:url(' + src + ');' : 'background:#ffc0d5';
-      html += '<div class="cat-cell" style="' + bg + 'background-size:cover;background-position:center"></div>';
+      const name = src.includes('evan') ? 'Evan 💕' : (src.includes('riki') ? 'Riki 💖' : 'Foto');
+      html += '<div class="cat-cell" data-src="' + src + '" data-name="' + name + '" style="' + bg + 'background-size:cover;background-position:center;cursor:pointer;" title="' + name + '"></div>';
     }
     html += '</div>';
     body.innerHTML = html;
+
+    body.querySelectorAll('.cat-cell').forEach(cell => {
+      cell.addEventListener('click', () => {
+        const src = cell.getAttribute('data-src');
+        const name = cell.getAttribute('data-name');
+        if (src) {
+          openApp('dialog', { text: name, img: src });
+        }
+      });
+    });
   }
 
   if (window.__imgCfg && window.__imgCfg.catsGrid) {
@@ -217,9 +228,15 @@ function buildCats(body) {
 }
 
 function buildDialog(body, params) {
+  let content = '';
+  if (params.img) {
+    content = '<img src="' + params.img + '" style="max-width:100%;max-height:200px;border-radius:8px;border:2px solid var(--pink);margin-bottom:10px;object-fit:cover;display:block;margin-left:auto;margin-right:auto">';
+  } else {
+    content = '<div class="dialog-cat">' + (params.icon || '🥺') + '</div>';
+  }
   body.innerHTML =
     '<div class="dialog-body">' +
-      '<div class="dialog-cat">' + (params.icon || '🥺') + '</div>' +
+      content +
       '<div class="dialog-text">' + (params.text || 'MESSAGE') + '</div>' +
       '<button class="dialog-btn">OK</button>' +
     '</div>';
@@ -310,15 +327,27 @@ function buildDraw(body) {
 function buildFiles(body) {
   body.innerHTML =
     '<div class="file-grid">' +
-      '<div class="file-item"><i class="fas fa-folder"></i>first date</div>' +
-      '<div class="file-item"><i class="fas fa-folder"></i>month 1</div>' +
-      '<div class="file-item"><i class="fas fa-folder"></i>month 2</div>' +
-      '<div class="file-item"><i class="fas fa-folder"></i>month 3</div>' +
-      '<div class="file-item"><i class="fas fa-file-image"></i>us.jpg</div>' +
-      '<div class="file-item"><i class="fas fa-file-image"></i>memories.png</div>' +
-      '<div class="file-item"><i class="fas fa-file-pdf"></i>our_story.pdf</div>' +
-      '<div class="file-item"><i class="fas fa-file-audio"></i>our_song.mp3</div>' +
+      '<div class="file-item" data-app="cats"><i class="fas fa-images"></i>all_photos</div>' +
+      '<div class="file-item" data-img="images/evan1.jpg"><i class="fas fa-file-image"></i>evan.jpg</div>' +
+      '<div class="file-item" data-img="images/riki1.jpg"><i class="fas fa-file-image"></i>riki.jpg</div>' +
+      '<div class="file-item" data-app="letters"><i class="fas fa-file-pdf"></i>our_story.pdf</div>' +
+      '<div class="file-item" data-app="music"><i class="fas fa-file-audio"></i>our_song.mp3</div>' +
+      '<div class="file-item" data-app="notes"><i class="fas fa-folder"></i>month 1</div>' +
+      '<div class="file-item" data-app="notes"><i class="fas fa-folder"></i>month 2</div>' +
+      '<div class="file-item" data-app="notes"><i class="fas fa-folder"></i>month 3</div>' +
     '</div>';
+
+  body.querySelectorAll('.file-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.getAttribute('data-img');
+      const app = item.getAttribute('data-app');
+      if (img) {
+        openApp('dialog', { text: item.textContent, img: img });
+      } else if (app) {
+        openApp(app);
+      }
+    });
+  });
 }
 
 function buildSave(body) {
