@@ -36,11 +36,15 @@ function openApp(appKey, params) {
   const mobile = window.innerWidth <= 640;
   if (mobile) {
     win.style.width = '100%';
-    win.style.height = '100%';
+    win.style.height = 'calc(100% - var(--title-h) - 64px)';
     win.style.left = '0';
-    win.style.top = '0';
+    win.style.top = 'var(--title-h)';
     win.style.border = 'none';
-    win.style.borderRadius = '0';
+    win.style.borderTopLeftRadius = '16px';
+    win.style.borderTopRightRadius = '16px';
+    win.style.borderBottomLeftRadius = '0';
+    win.style.borderBottomRightRadius = '0';
+    win.style.boxShadow = '0 -4px 12px rgba(216,92,140,0.3)';
     win.style.position = 'fixed';
     win.style.zIndex = ++zCounter;
     document.body.appendChild(win);
