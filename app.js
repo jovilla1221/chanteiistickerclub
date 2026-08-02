@@ -197,7 +197,7 @@ function buildCats(body) {
     for (let i = 0; i < total; i++) {
       const src = imgs && imgs.length ? imgs[i % imgs.length] : '';
       const bg = src ? 'background-image:url(' + src + ');' : 'background:#ffc0d5';
-      const name = src.includes('evan') ? 'Evan 💕' : (src.includes('riki') ? 'Riki 💖' : 'Foto');
+      const name = src.includes('mayicha') ? 'Mayicha 💕' : (src.includes('roderick') ? 'Roderick 💖' : 'Foto');
       html += '<div class="cat-cell" data-src="' + src + '" data-name="' + name + '" style="' + bg + 'background-size:cover;background-position:center;cursor:pointer;" title="' + name + '"></div>';
     }
     html += '</div>';
@@ -332,8 +332,8 @@ function buildFiles(body) {
   body.innerHTML =
     '<div class="file-grid">' +
       '<div class="file-item" data-app="cats"><i class="fas fa-images"></i>all_photos</div>' +
-      '<div class="file-item" data-img="images/evan1.jpg"><i class="fas fa-file-image"></i>evan.jpg</div>' +
-      '<div class="file-item" data-img="images/riki1.jpg"><i class="fas fa-file-image"></i>riki.jpg</div>' +
+      '<div class="file-item" data-img="images/mayicha1.jpg"><i class="fas fa-file-image"></i>mayicha.jpg</div>' +
+      '<div class="file-item" data-img="images/roderick1.jpg"><i class="fas fa-file-image"></i>roderick.jpg</div>' +
       '<div class="file-item" data-app="letters"><i class="fas fa-file-pdf"></i>our_story.pdf</div>' +
       '<div class="file-item" data-app="music"><i class="fas fa-file-audio"></i>our_song.mp3</div>' +
       '<div class="file-item" data-app="notes"><i class="fas fa-folder"></i>month 1</div>' +
